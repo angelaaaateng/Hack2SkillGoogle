@@ -258,3 +258,13 @@ curl -X POST https://YOUR_CLOUD_RUN_URL/query \
 - The `.env` file contains sensitive credentials — **never commit it to version control**.
 - The `instruction` field in the ADK `Agent` constructor is the primary mechanism for shaping persona and behavior — the `IMPORTANT BEHAVIOR RULES` block is critical for preventing the model from defaulting to generic assistant responses.
 - Cloud Run's stateless, containerized model is a natural fit for this agent: each request is independent, there is no session state required, and the service scales to zero when idle.
+
+
+
+adk deploy cloud_run \
+--project=glo-aig-spark-project-sbx \
+--region=asia-southeast1 \
+--service_name=project1-cr-service \
+--app_name=project1-cr-app \
+--with_ui \
+fde_agent
